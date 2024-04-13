@@ -1,0 +1,12 @@
+{
+  "name": "typescript-dasar",
+  "version": "1.0.0",
+  "description": "Belajar Typescript Dasar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sandi Arba Putra",
+  "license": "ISC",
+  "type": "module"
+}
