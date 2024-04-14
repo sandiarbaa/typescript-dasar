@@ -1,9 +1,9 @@
 "use strict";
 describe("Data Type", function () {
     it("should must declare", function () {
-        const name = "Sandi Arba Putra";
-        const balance = 1000000;
-        const isVip = true;
+        let name = "Sandi Arba Putra";
+        let balance = 1000000;
+        let isVip = true;
         // console.info(name, balance, isVip);
         console.info(name);
         console.info(balance);
