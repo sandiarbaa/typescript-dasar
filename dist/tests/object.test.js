@@ -7,6 +7,7 @@ describe("Object", () => {
             id: "1",
             name: "Sandi",
         };
+        // optional properties, jadi cukup tambahkan ? di atribut atau propertiesnya
         console.info(person);
         person.id = "2";
         person.name = "Arba";
