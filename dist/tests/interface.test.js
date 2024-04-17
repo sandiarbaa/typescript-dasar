@@ -62,5 +62,16 @@ describe("Interface", () => {
         };
         console.info(domain);
     });
+    it("should support type assertions", () => {
+        const person = {
+            name: "Sandi",
+            age: 19,
+        };
+        const person2 = person;
+        // person2.age // ini error kalo gini
+        // person2.sayHello("arba"); // ini juga
+        // jadi hati2 kalau melakukan konversi, kalau salah begitu, bisa error, dan erronya baru ketauan ketika aplikasinya dijalankan
+        console.info(person2);
+    });
 });
 export {};

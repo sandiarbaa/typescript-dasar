@@ -1,5 +1,6 @@
 import { Seller } from "../src/seller";
 import { Employee, Manager } from "../src/employee";
+import { Person } from "../src/person";
 
 // interface jg keknya hampir sama sih kaya alias, sama-sama kaya blueprint gitu
 // tapi interface ini akan hilang kalau di compile ke js
@@ -75,11 +76,6 @@ describe("Interface", () => {
   });
 
   it("should support function in interface", () => {
-    interface Person {
-      name: string;
-      sayHello(name: string): string;
-    }
-
     const person: Person = {
       name: "Sandi",
       sayHello: function (name: string): string {
@@ -113,5 +109,19 @@ describe("Interface", () => {
     };
 
     console.info(domain);
+  });
+
+  it("should support type assertions", () => {
+    const person: any = {
+      name: "Sandi",
+      age: 19,
+    };
+
+    const person2: Person = person as Person;
+    // person2.age // ini error kalo gini
+    // person2.sayHello("arba"); // ini juga
+    // jadi hati2 kalau melakukan konversi, kalau salah begitu, bisa error, dan erronya baru ketauan ketika aplikasinya dijalankan
+
+    console.info(person2);
   });
 });
