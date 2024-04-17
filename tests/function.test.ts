@@ -67,4 +67,36 @@ describe("Function", () => {
     expect(callMe(100)).toBe(1000);
     expect(callMe("Sandi")).toBe("SANDI");
   });
+
+  it("should support function as parameter", () => {
+    function sayHello(name: string, filter: (name: string) => string): string {
+      return `Hello ${filter(name)}`;
+    }
+
+    function toUpper(name: string): string {
+      return name.toUpperCase();
+    }
+
+    expect(sayHello("Sandi", toUpper)).toBe("Hello SANDI");
+
+    // ini kalau mau pakai anonymous function, bisa juga langsung kaya begini
+    // ini function biasa
+    expect(
+      sayHello("Sandi", function (name: string): string {
+        return name.toUpperCase();
+      })
+    ).toBe("Hello SANDI");
+
+    // ini arrow function with return
+    expect(
+      sayHello("Sandi", (name: string): string => {
+        return name.toUpperCase();
+      })
+    ).toBe("Hello SANDI");
+
+    // ini arrow function without return
+    expect(
+      sayHello("Sandi", (name: string): string => name.toUpperCase())
+    ).toBe("Hello SANDI");
+  });
 });
