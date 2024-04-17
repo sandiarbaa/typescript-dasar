@@ -1,3 +1,6 @@
+// interface jg keknya hampir sama sih kaya alias, sama-sama kaya blueprint gitu
+// tapi interface ini akan hilang kalau di compile ke js
+// karena interface hanya ada dan ditangani di typescript
 describe("Interface", () => {
     it("should support in typescript", () => {
         const seller = {
@@ -27,6 +30,37 @@ describe("Interface", () => {
         };
         expect(dictionary["name"]).toBe("Sandi");
         expect(dictionary["address"]).toBe("Banten");
+    });
+    it("should support extends interface", () => {
+        const employee = {
+            id: "1",
+            name: "Sandi",
+            division: "IT",
+        };
+        console.info(employee);
+        const manager = {
+            id: "2",
+            name: "Arba",
+            division: "IT",
+            numberOfEmployees: 10,
+        };
+        console.info(manager);
+    });
+    it("should support function in interface", () => {
+        const person = {
+            name: "Sandi",
+            sayHello: function (name) {
+                return `Hallo ${name}, my name is ${this.name}`;
+            },
+        };
+        console.info(person.sayHello("Arba"));
+    });
+    it("should support intersection types", () => {
+        const domain = {
+            id: 1,
+            name: "Sandi",
+        };
+        console.info(domain);
     });
 });
 export {};

@@ -1,6 +1,10 @@
 import { Seller } from "../src/seller";
 import { Employee, Manager } from "../src/employee";
 
+// interface jg keknya hampir sama sih kaya alias, sama-sama kaya blueprint gitu
+// tapi interface ini akan hilang kalau di compile ke js
+// karena interface hanya ada dan ditangani di typescript
+
 describe("Interface", () => {
   it("should support in typescript", () => {
     const seller: Seller = {
@@ -84,5 +88,30 @@ describe("Interface", () => {
     };
 
     console.info(person.sayHello("Arba"));
+  });
+
+  it("should support intersection types", () => {
+    interface HasName {
+      name: string;
+    }
+
+    interface HasId {
+      id: number;
+    }
+
+    // interface Person extends HasName, HasId {
+
+    // }
+    // daripada kaya gitu mending di bikin intersection aja
+    // jadi intersection itu seperti membuat sendiri tipe data baru dari gabungan 2 tipe data yg berbeda
+
+    type Domain = HasId & HasName;
+
+    const domain: Domain = {
+      id: 1,
+      name: "Sandi",
+    };
+
+    console.info(domain);
   });
 });
